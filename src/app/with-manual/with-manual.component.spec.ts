@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TesterComponent } from './tester.component';
+import { WithManualComponent } from './with-manual.component';
 
-describe('TesterComponent', () => {
-  let component: TesterComponent;
-  let fixture: ComponentFixture<TesterComponent>;
+describe('WithManualComponent', () => {
+  let component: WithManualComponent;
+  let fixture: ComponentFixture<WithManualComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TesterComponent ]
+      declarations: [ WithManualComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(TesterComponent);
+    fixture = TestBed.createComponent(WithManualComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
