@@ -1,27 +1,28 @@
 # NgExcsChangeDetection
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.2.
+## Cómo sabe Angular cuándo actualizar los valores interpolados en los templates?
 
-## Development server
+Mediante una [estrategia de  detección de cambios](https://angular.io/api/core/ChangeDetectionStrategy).
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Angular viene con dos disponibles:
 
-## Code scaffolding
+### ChangeDetectionStrategy.Default
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* `git checkout default-change-detection`
+* `ng serve`
+* Escriba en el textbox o presione el botón. Observe cómo estos eventos ocasionan un nuevo ciclo de detección de cambios.
+* Duplique el tester component en la vista. Observe como un evento disparado por CUALQUIER componente ocasiona un nuevo ciclo de detección de cambios para TODOS los componentes.
 
-## Build
+Con esta estrategia, Angular reacciona ante casi cualquier estímulo con un nuevo ciclo de detección de cambios. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Durante cada ciclo, Angular revisa cada valor interpolado en cada template, lo compara contra su valor en el ciclo pasado, y si son distintos actualiza la vista.
 
-## Running unit tests
+Esto se puede volver lento fácilmente... En especial conforme la aplicación crezca en complejidad.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### ChangeDetectionStrategy.OnPush
 
-## Running end-to-end tests
+* `git checkout on-push-change-detection`
+* `ng serve`
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#### Recursos
+* [Guide to OnPush Change Detection](https://netbasal.com/a-comprehensive-guide-to-angular-onpush-change-detection-strategy-5bac493074a4)
